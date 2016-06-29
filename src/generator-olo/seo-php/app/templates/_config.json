@@ -1,0 +1,11 @@
+{
+	"dev": {
+		"dev": true,    
+ 		"root": ""
+	},
+	"prod": {
+		"dev": false,    
+ 		"root": "<%= actName %>"
+	},
+	"port": 2000
+} 

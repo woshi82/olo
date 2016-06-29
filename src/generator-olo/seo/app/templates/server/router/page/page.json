@@ -1,0 +1,8 @@
+
+{
+	"/": "index",
+	"/about": {
+		"/": "about",
+		"/member": "member"
+	}
+}
