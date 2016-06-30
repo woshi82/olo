@@ -1,7 +1,4 @@
 {
-	"/loginout":["get","login"],
-	"/loginout":{
-		"/login": ["get","login"]
-	}
+	"/loginout":["get","login"]
 
 }

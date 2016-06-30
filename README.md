@@ -117,9 +117,10 @@ module.exports = {
 一级路由/二级路由: ［请求方式，接口名称］,
 
 "/loginout":["get(post)","login"],       //一级路由默认索引到对应的"一级路由名称.js".接口对应"loginout.js>login"
-"/loginout": {  
+
+(或者)"/loginout": {                     
+    "/":["get(post)","login"]           //与上面的"/loginout"功能相同
     "/login": ["get","login"]
-},
-"/loginout/login": ["get","login"]      //与上面的"/login"功能相同 
+}    
 ``` 
 

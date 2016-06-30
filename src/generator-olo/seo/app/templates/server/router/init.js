@@ -3,24 +3,6 @@
  * @module router/init
  * @param {Object} app - express()对象
  */
-/**
-* '/about': {
-*     '/': about,
-*     '/member': member,
-*     '/member/:type': type,
-* },
-* '/about/member':member,
-* '/detail': {
-*     '/:id': detail,
-* },
-*
-* '/detail/:id':detail,
-* '/channel':channel
-*"/content": {
-*        "/":["get","content"],
-*        "/praise":["post","praise"]
-*    }
-*/
 
 
 var path = require('path'),
