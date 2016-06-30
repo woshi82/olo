@@ -3,7 +3,6 @@
 var generators = require('./src/generators');
 var release = require('./src/release');
 var server = require('./src/server');
-// var sm = require('./src/sm');
 
 var pkg = require('./package.json');
 
@@ -11,7 +10,7 @@ var olo = require('commander')
     .version(pkg.version);
 
 /**
- * generator-biketo嵌入
+ * generator-olo嵌入
  */
 olo
     .command('init')

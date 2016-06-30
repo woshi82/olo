@@ -1,8 +1,4 @@
 
 {
-	"/": "index",
-	"/about": {
-		"/": "about",
-		"/member": "member"
-	}
+	"/": "index"
 }

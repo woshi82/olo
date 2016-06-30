@@ -7,7 +7,6 @@ module.exports = generators.Base.extend({
     constructor: function (args, options, config) {
         
         generators.Base.apply(this, arguments);
-        // console.log(options);
 
         this.actName = options.actName;
         this.oloType = options.oloType;
@@ -22,8 +21,8 @@ module.exports = generators.Base.extend({
         this.directory('libs', 'libs');
         this.directory('assets', 'assets');
         this.copy('fis-conf.js', 'fis-conf.js');
-            this.directory('server', 'server');
-            this.directory('views', 'views');
+        this.directory('server', 'server');
+        this.directory('views', 'views');
 
     }
 });

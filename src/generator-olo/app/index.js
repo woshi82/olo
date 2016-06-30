@@ -27,7 +27,7 @@ module.exports = generators.Base.extend({
             defaultType = packageContent.olotype;
             // defaultGitHost = packageContent.biketo.git;
         } catch (e) {
-            console.log(e);
+            // console.log(e);
         }
 
 
@@ -46,12 +46,12 @@ module.exports = generators.Base.extend({
             }, {
                 name: 'seo-php',
                 value: 'seo-php'
-            }, {
-                name: 'webapp',
-                value: 'webapp'
             }]
         }], function(answers) {
-            
+            // {
+            //     name: 'webapp',
+            //     value: 'webapp'
+            // }
             this.actName = answers.name;
             this.oloType = answers.type;
             console.log("../"+this.oloType+"/app");

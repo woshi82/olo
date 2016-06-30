@@ -47,6 +47,6 @@ var PORT = process.env.port || 2000;
 express()
     .use(ROOT, app)
     .listen(PORT, function() {
-       ROOT? console.log('Server start! http://127.0.0.1:%d%s/', PORT, ROOT):console.log('Server start! http://127.0.0.1:%d/', PORT);
+       ROOT? console.log('Server start! http://127.0.0.1:%d/%s/', PORT, process.env.root):console.log('Server start! http://127.0.0.1:%d/', PORT);
     });
 
