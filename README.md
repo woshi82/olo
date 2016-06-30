@@ -32,8 +32,8 @@
     olo init
     olo v view-name (可选)
     olo c component-name (可选)
-    npm run start
-    npm run watch
+    olo s (或者) npm run start
+    olo w (或者) npm run watch
 #### 一. 公用配置
 ![config配置](https://github.com/woshi82/olo/blob/master/assets/config.jpg)
 #### 二. seo-php
@@ -67,7 +67,7 @@
 **fis-conf.js** fis 配置;  
 **package.json** 项目包配置.
 ##### 注意事项
-1. 页面路由  **server>router>page>index.js**
+1、 页面路由  **server>router>page>index.js**
 ```javascript
 module.exports = {
 	路由名称: ［中间件（可选）,函数］,
@@ -80,7 +80,7 @@ module.exports = {
 	}
 }; 
 ``` 
-2. 页面路由配置  **server>router>page>page.json**   
+2、 页面路由配置  **server>router>page>page.json**   
 ```javascript
 一级路由:接口名称
 一级路由:{
@@ -99,7 +99,7 @@ module.exports = {
     "/:id": detail,
 }  
 ``` 
-3. 接口路由  **server>router>api>loginout.js**
+3、 接口路由  **server>router>api>loginout.js**
 ```javascript
 module.exports = {
 	路由名称: 函数,
@@ -108,7 +108,7 @@ module.exports = {
 	}
 }; 
 ```
-4. 接口路由配置  **server>router>api>api.json**   
+4、 接口路由配置  **server>router>api>api.json**   
 ```javascript
 一级路由:[请求方式，接口名称]
 一级路由:{
