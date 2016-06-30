@@ -99,7 +99,7 @@ module.exports = {
     "/:id": detail,
 }  
 ``` 
-3、接口路由  **server>router>api>loginout.js**
+3. 接口路由  **server>router>api>loginout.js**
 ```javascript
 module.exports = {
 	路由名称: 函数,
