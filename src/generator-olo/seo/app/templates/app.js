@@ -24,11 +24,12 @@ app.use(favicon(basePath + '/public/images/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(express.cookieParser());
+
 // app.use(express.multipart());
 app.use(session({
     secret: 'biketo',
-    resave: true
+    resave: true,
+    saveUninitialized: true
 }));
 
 router(app);
