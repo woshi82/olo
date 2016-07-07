@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
     secret: 'biketo',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: false
 }));
 
 router(app);
