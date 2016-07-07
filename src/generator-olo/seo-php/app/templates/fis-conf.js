@@ -12,6 +12,7 @@ fis.set('new date', Date.now());
 fis.set('base.port',process.env.port);
 fis.set('base.root', config.root);
 fis.set('base.static',config.root + '/public');
+fis.media('prod').set('charset', 'gb2312');
 // 默认开启 handlebars
 fis.match('*.handlebars', {
     parser: fis.plugin('biketo-handlebars', {
@@ -20,7 +21,7 @@ fis.match('*.handlebars', {
             partialRoot: 'c/',
             dataRoot: ['c/', 'views/'],
             helpers: {
-                
+
             }
         },
         data: { dev: config.dev }
@@ -64,15 +65,14 @@ fis.media('prod').match('*.js', {
     // useHash: true,
     query: '?=t' + fis.get('new date'),
     optimizer: fis.plugin('uglify-js'),
-     charset: 'gb2312'
+     charset: fis.get('charset')
 });
 fis.media('prod').match('*.{css,less,scss,sass}', {
     // useHash: true,
     query: '?=t' + fis.get('new date'),
     optimizer: fis.plugin('clean-css'),
-     charset: 'gb2312'
+     charset: fis.get('charset')
 });
 fis.media('prod').match('*.png', {
     optimizer: fis.plugin('png-compressor',{type: 'pngquant'})
 });
-    

@@ -123,6 +123,20 @@ olo
         server.open();
     });
 
+olo
+    .command('clean')
+    .description('clean server folder')
+    .action(function () {
+        server.clean();
+    });
+
+olo
+    .command('stop')
+    .description('stop server folder')
+    .action(function () {
+        server.stop();
+    });
+
 olo.parse(process.argv);
 
 

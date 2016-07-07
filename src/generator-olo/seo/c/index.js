@@ -19,9 +19,9 @@ module.exports = generators.Base.extend({
             return;
         }
         // 固定入口文件为 `c/${cmpName}/index.${handlebars|js|scss}`
-        
+
         this.cmpName = _.kebabCase(this.cmpName);
-        var componentPath = 'c/' + this.cmpName;
+        var componentPath = 'components/' + this.cmpName;
         var cmpName = componentPath  + '/' + this.cmpName;
         // this.directory('images', componentPath + '/images');
         this.template('_cmp.js', cmpName + '.js');

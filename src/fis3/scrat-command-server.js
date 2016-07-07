@@ -106,7 +106,7 @@ exports.register = function(commander) {
                     }).shift().replace(reg, '');
             } catch(e) {}
         }
-       
+
         return 'http://' + getLoaclIP() + ':' + envPort +'/'+ projectPath ;
     }
 
@@ -161,20 +161,16 @@ exports.register = function(commander) {
             cwd = root + '/server';
         } else if(fis.util.exists(root + '/package.json')){
             cwd = root;
-        }    
-        
+        }
+
         if(cwd){
             var pkg = require(cwd + '/package.json');
-            // var privateDeps = [].concat(Object.keys(pkg.dependencies|| '') , Object.keys(pkg.devDependencies|| '')).filter(function(key){
-            //     return key.indexOf('@ali') !== -1;
-            // });
             var privateDeps = [].concat(Object.keys(pkg.dependencies|| '') , Object.keys(pkg.devDependencies|| ''));
-            if(privateDeps.length > 0 && !hasbin.sync('cnpm')){
-                fis.log.error('has private deps(' + privateDeps.join(',') + '), but not found cnpm !\nplz try: npm install cnpm -g --registry=http://registry.npm.alibaba-inc.com\nsee also http://web.npm.alibaba-inc.com/');
-            }else{
+            // if(privateDeps.length > 0 && !hasbin.sync('cnpm')){
+            //     fis.log.error('has private deps(' + privateDeps.join(',') + '), but not found cnpm !\nplz try: npm install cnpm -g --registry=http://registry.npm.alibaba-inc.com\nsee also http://web.npm.alibaba-inc.com/');
+            // }else{
                 var npm = childProcess.exec(hasbin.sync('cnpm') ? 'cnpm install' : 'npm install', { cwd : cwd });
-                // var npm = childProcess.exec(hasbin.sync('tnpm') ? 'tnpm install' : 'npm install', { cwd : cwd });
-                
+
                 npm.stderr.pipe(process.stderr);
                 npm.stdout.pipe(process.stdout);
                 npm.on('exit', function(code){
@@ -184,7 +180,7 @@ exports.register = function(commander) {
                         process.stderr.write('launch server failed\n');
                     }
                 });
-            }
+            // }
         } else {
             startServer();
         }
@@ -221,15 +217,30 @@ exports.register = function(commander) {
                     }
                 });
                 fis.util.fs.unlinkSync(tmp);
+
                 if (callback) {
                     callback();
+                    // clean('',callback)
                 }
             });
         } else {
+
             if (callback) {
                 callback();
+                // clean('',callback)
             }
         }
+    }
+    function clean(all,cb) {
+        process.stdout.write(' δ '.bold.yellow);
+        var now = Date.now();
+        var include = fis.config.get('server.clean.include', null);
+        var reg = all ? null : new RegExp('^' + fis.util.escapeReg(root + '/node_modules/'), 'i');
+        var exclude = fis.config.get('server.clean.exclude', reg);
+        fis.util.del(root, include, exclude);
+        process.stdout.write((Date.now() - now + 'ms').green.bold);
+        process.stdout.write('\n');
+        cb && cb();
     }
 
     commander
@@ -271,14 +282,7 @@ exports.register = function(commander) {
                     console.log(root);
                     break;
                 case 'clean':
-                    process.stdout.write(' δ '.bold.yellow);
-                    var now = Date.now();
-                    var include = fis.config.get('server.clean.include', null);
-                    var reg = options.all ? null : new RegExp('^' + fis.util.escapeReg(root + '/node_modules/'), 'i');
-                    var exclude = fis.config.get('server.clean.exclude', reg);
-                    fis.util.del(root, include, exclude);
-                    process.stdout.write((Date.now() - now + 'ms').green.bold);
-                    process.stdout.write('\n');
+                    clean(options.all);
                     break;
                 default :
                     commander.help();
