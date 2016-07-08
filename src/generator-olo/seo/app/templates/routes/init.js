@@ -85,7 +85,8 @@ module.exports = function(app) {
     function getInit(type,obj, prevA,mode) {
         for (var b in obj) {
             if (isArray(obj[b]) || typeof obj[b] == 'string') {
-                route = path.join(prevA, b);
+                // route = path.join(prevA, b);
+                route = prevA+ b;
 
                 if(type == 'api'){
                     name = obj[b][1];
