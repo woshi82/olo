@@ -24,7 +24,8 @@
         "mockjs": "^1.0.1-beta2",
         "path": "^0.12.7",
         "request": "^2.72.0",
-        "serve-favicon": "^2.3.0"
+        "serve-favicon": "^2.3.0",
+        "eventproxy": "^0.3.5"
     },
     "devDependencies": {},
     "browser": {
