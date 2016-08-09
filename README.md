@@ -53,8 +53,8 @@
 ![seo目录结构](assets/seo.png)
 ```
 |---- assets           # 静态文件目录
-	  |---- images     # 图片文件
-	  |---- scss       # 通用样式文件
+      |---- images     # 图片文件
+      |---- scss       # 通用样式文件
 |---- components/      # 页面组件文件
 |---- views/           # 前端页面渲染
 |---- libs/            # 前端辅助类或工具类文件
@@ -75,18 +75,21 @@
 |---- .eslintrc        # eslint 代码规范性检查配置文件
 |---- .gitignore       # git 仓库文件忽略配置
 ```
+##### 数据模拟
+项目默认调用了fis3自带的模拟数据，即：`mock`。因此在正常启动项目后，需要另外打开终端运行`fis3 server start`。
+**注意：** 如果按照步骤运行后还是不能成功调用接口，可以：升级fis3版本至最新，或者将`mock`文件名改为`test`。
 ##### 注意事项
 1、 页面路由  **controllers>index.js**
 ```javascript
 module.exports = {
-	路由名称: ［中间件（可选）,函数］,
-	路由名称: 函数,
-	index: [midUser.hasLogin,function(req,res){
-		res.render('index',{username: req.session.username});
-	}]
-	index1 : function(req,res){
-		res.render('index',{username: req.session.username});
-	}
+    路由名称: ［中间件（可选）,函数］,
+    路由名称: 函数,
+    index: [midUser.hasLogin,function(req,res){
+        res.render('index',{username: req.session.username});
+    }]
+    index1 : function(req,res){
+        res.render('index',{username: req.session.username});
+    }
 };
 ```
 2、 页面路由配置  **server>_conf.json>controllers**  
@@ -131,10 +134,10 @@ module.exports = {
 3、 接口路由  **service>loginout.js**
 ```javascript
 module.exports = {
-	路由名称: 函数,
-	login : function(req,res){
-		//一般在这里进行数据请求
-	}
+    路由名称: 函数,
+    login : function(req,res){
+        //一般在这里进行数据请求
+    }
 };
 ```
 4、 接口路由配置  **server>_conf.json>service**   

@@ -61,7 +61,9 @@ fis.match(/^\/views\/layouts\/(([^\/]+)\/)*(.*)\.handlebars$/,{
 });
 
 // prod 模式下进行压缩优化
-
+fis.media('prod').match('mock/**',{
+    release: false
+});
 fis.media('prod').match(/^\/views\/([^\/]+)\/(.*)\.js$/, {
     query: '?=t' + fis.get('new date'),
     optimizer: fis.plugin('uglify-js')
