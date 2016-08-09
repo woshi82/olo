@@ -14,20 +14,19 @@ var path = require('path'),
 
 /** 路由配置函数 */
 module.exports = function(app) {
-    var config = require('./_conf.json');
 
     // 需要配置文件
-    var pagePath = config.controllers.root,
-        apiPath = config.service.root,
-        pageSettings = config.controllers.map,
-        apiSettings = config.service.map;
+    var pagePath = path.join(__dirname, './page'),
+        apiPath = path.join(__dirname, './api'),
+        pageSettings = require(path.join(pagePath, '_page.json')),
+        apiSettings = require(path.join(apiPath, '_api.json'));
 
     setRoute(pageSettings, pagePath, 'get');
     setRoute(apiSettings, apiPath, 'post');
 
     // 不用配置文件
-    // setRouteNoSetting(pagePath,'get');
-    // setRouteNoSetting(apiPath,'post');
+    // setRouteNoSetting(path.join(__dirname,'./page/'),'get');
+    // setRouteNoSetting(path.join(__dirname,'./api/'),'post');
 
     /**
      * setRouteNoSetting 设置路由(无配置文件)

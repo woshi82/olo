@@ -1,5 +1,10 @@
 'use strict';
-
+/**
+ * index.js
+ * @version [version]
+ * @description [组件入口]
+ * @author [Zengyanling(https://github.com/woshi82)]
+ */
 var generators = require('yeoman-generator');
 var chalk = require('chalk');
 var _ = require('lodash');

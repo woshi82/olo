@@ -1,0 +1,25 @@
+{
+    "controllers": {
+        "root": "../controllers",
+        "map": [
+            {
+                "/": ["index"],
+                "/login": ["login"],
+                "/loginReturn": ["loginReturn"],
+                "/myTest/:page": ["get", "myTest"],
+                "/myTest/xxx/:page": ["get", "myTest"],
+                "/myTest/:id/:page": ["get", "myTest"],
+                "/news/:id/:page": ["get", "myTest"],
+                "/myTest/xxx/:page/:id": ["get", "myTest"]
+            }
+        ]
+    },
+    "service": {
+        "root": "../service",
+        "map": [
+            {
+                "/loginout":["get","loginout"]
+            }
+        ]
+    }
+}

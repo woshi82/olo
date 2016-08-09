@@ -1,0 +1,19 @@
+{
+    "controllers": {
+        "root": "../controllers",
+        "map": [
+            {
+                "index|/": "index",
+                "index": "index"
+            }
+        ]
+    },
+    "service": {
+        "root": "../service",
+        "map": [
+            {
+                "/auth":["get","login"]
+            }
+        ]
+    }
+}

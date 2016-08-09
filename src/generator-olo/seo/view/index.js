@@ -1,5 +1,10 @@
 'use strict';
-
+/**
+ * index.js
+ * @version [version]
+ * @description [页面入口]
+ * @author [Zengyanling(https://github.com/woshi82)]
+ */
 var generators = require('yeoman-generator');
 var _ = require('lodash');
 
@@ -19,7 +24,7 @@ module.exports = generators.Base.extend({
         var viewFilePath = 'views/' + this.viewName;
         var viewFileName = viewFilePath + '/' + this.viewName;
  
-        this.copy('index.js', viewFileName + '.js');
+        this.template('_index.js', viewFileName + '.js');
         this.template('_index.handlebars', viewFileName + '.handlebars');
         this.copy('index.scss', viewFileName + '.scss');
         

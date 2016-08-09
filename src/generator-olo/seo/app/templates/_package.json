@@ -8,7 +8,8 @@
     "scripts": {
         "watch": "olo w",
         "start": " olo s",
-        "release": " olo r prod -cd ../prod "
+        "release": " olo r prod -cd ../prod ",
+        "pm2": "pm2 start pm2.json --env prod"
     },
     "keywords": [
         "activity",
@@ -20,9 +21,13 @@
         "express": "^4.13.4",
         "express-handlebars": "^3.0.0",
         "express-session": "^1.13.0",
+        "mockjs": "^1.0.1-beta2",
         "path": "^0.12.7",
         "request": "^2.72.0",
         "serve-favicon": "^2.3.0"
     },
-    "devDependencies": {}
+    "devDependencies": {},
+    "browser": {
+        "jquery": "./libs/jquery.min.js"
+    }
 }

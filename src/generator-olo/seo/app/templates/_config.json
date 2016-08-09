@@ -1,10 +1,13 @@
 {
 	"dev": {
-		"port": 2000,
- 		"root": ""
+		"ENV": "DEV",
+        "PORT": 8000,
+ 		"ROOT": "",
+        "APIDOMAIN": "http://127.0.0.1:8080"
 	},
 	"prod": {
-		"port": 2000,
- 		"root": "<%= actName %>"
+        "ENV": "PROD",
+		"PORT": 8000,
+ 		"ROOT": "<%= actName %>"
 	}
 }

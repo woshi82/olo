@@ -1,8 +1,7 @@
-'use strict';
 /**
- * index.js
+ * <%= viewName %>.js
  * @version 1.0
- * @description 首页
+ * @description xxx
  * @author Xxx
  */
 

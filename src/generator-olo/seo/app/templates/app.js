@@ -1,10 +1,13 @@
+/**
+ * node服务入口文件
+ */
 var express = require('express'),
     path = require('path'),
     favicon = require('serve-favicon'),
     session = require('express-session'),
     bodyParser = require('body-parser'),
 	exphbs = require('express-handlebars'),
-	helpers = require('./utils/helpers'),
+	helpers = require('./server/utils/helpers'),
     app = express(),
     basePath = process.cwd(),
     hbs = exphbs.create({
@@ -13,7 +16,17 @@ var express = require('express'),
 		helpers      : helpers,
 		partialsDir      : ['components']
 	}),
-	router = require('./routes/init');
+    router = require('./server/init'),
+	// router = require('./routes/routes'),
+    configFile = require('./config.json');
+
+
+if (!!configFile[process.env.NODE_ENV]) {
+    var config = configFile[process.env.NODE_ENV];
+    for (var attr in config) {
+        process.env[attr] = config[attr];
+    }
+}
 
 app.engine('.html', hbs.engine);
 app.set('view engine', '.html');
@@ -35,10 +48,10 @@ app.use(session({
 router(app);
 
 
-var PORT = process.env.config.port || 2000;
-var ROOT = process.env.config.root?('/' + process.env.config.root):'';
+var PORT = process.env.PORT || 2000;
+var ROOT = process.env.ROOT?('/' + process.env.ROOT):'';
 express()
     .use(ROOT, app)
     .listen(PORT, function() {
-        ROOT? console.log('Server start! http://127.0.0.1:%d/%s/', PORT, process.env.root):console.log('Server start! http://127.0.0.1:%d/', PORT);
+        ROOT? console.log('Server start! http://127.0.0.1:%d/%s/', PORT, process.env.ROOT):console.log('Server start! http://127.0.0.1:%d/', PORT);
     });

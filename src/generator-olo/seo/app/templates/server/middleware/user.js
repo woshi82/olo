@@ -1,7 +1,10 @@
+'use strict';
+
 /**
-*@module middleware
-*中间件模块的示例
-*/
+ * @module 用户中间件
+ * @version 1.0
+ * @author Xxx
+ */
 module.exports = {
 	// hasLogin: function (req,res,next) {
 	// 	req.session.username = "zengyanling";

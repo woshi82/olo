@@ -1,0 +1,18 @@
+{
+    "apps": [
+        {
+            "name": "<%= actName %>",
+            "env": {
+                "NODE_ENV": "dev"
+            },
+            "env_prod": {
+                "NODE_ENV": "prod"
+            },
+            "script": "app.js",
+            "log_date_format": "YYYY-MM-DD HH:mm:SS",
+            "instance": 4,
+            "exec_mode": "cluster",
+            "watch": true
+        }
+    ]
+}

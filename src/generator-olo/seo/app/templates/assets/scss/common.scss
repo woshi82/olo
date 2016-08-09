@@ -1,0 +1,31 @@
+@import './reset.css';
+
+@mixin pie-radius($px){
+    border-radius: $px;
+    -ms-behavior: url(/PIE.htc);
+    behavior: url(/PIE.htc);
+    position: relative;
+     z-index:2;
+}
+
+@mixin bgsize($a){
+    background-size: $a;
+    -ms-behavior: url(/backgroundsize.min.htc);
+    behavior: url(/backgroundsize.min.htc);
+}
+
+.fl{
+	float: left;
+}
+.fr {
+	float: right;
+}
+.clear {
+	zoom: 1;
+}
+.clear:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+
