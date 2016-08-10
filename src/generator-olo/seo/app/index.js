@@ -27,7 +27,7 @@ module.exports = generators.Base.extend({
         // this.copy('.bowerrc', '.bowerrc');
         this.copy('.eslintrc', '.eslintrc');
         this.copy('.editorconfig', '.editorconfig');
-        this.copy('.gitignore', '.gitignore');
+        this.copy('gitignore', '.gitignore');
 
         this.directory('libs', 'libs');
         this.directory('assets', 'assets');
