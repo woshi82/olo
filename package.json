@@ -31,7 +31,7 @@
     "fis-parser-biketo-handlebars": "^1.2.1",
     "fis-parser-node-sass": "^0.1.9",
     "fis-preprocessor-browserify": "^0.2.1",
-    "fis3": "^3.3.29",
+    "fis3": "^3.4.22",
     "fis3-hook-relative": "^1.0.9",
     "glob": "^7.0.3",
     "hasbin": "^1.2.1",
