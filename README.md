@@ -76,8 +76,7 @@
 |---- .gitignore       # git 仓库文件忽略配置
 ```
 ##### 数据模拟
-项目默认调用了fis3自带的模拟数据，即：`mock`。因此在正常启动项目后，需要另外打开终端运行`fis3 server start`。
-**注意：** 如果按照步骤运行后还是不能成功调用接口，可以：升级fis3版本至最新，或者将`mock`文件名改为`test`。
+mock数据功能内嵌在node服务中，功能用法和fis文档上说明的一样。`http://fis.baidu.com/fis3/docs/node-mock.html`
 ##### 注意事项
 1、 页面路由  **controllers>index.js**
 ```javascript

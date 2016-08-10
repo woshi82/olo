@@ -6,19 +6,19 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     session = require('express-session'),
     bodyParser = require('body-parser'),
-	exphbs = require('express-handlebars'),
-	helpers = require('./utils/helpers'),
+    exphbs = require('express-handlebars'),
+    helpers = require('./utils/helpers'),
     app = express(),
     basePath = process.cwd(),
     hbs = exphbs.create({
-    	extname: '.html',
-		defaultLayout: 'main',
-		helpers      : helpers,
-		partialsDir      : ['components']
-	}),
+        extname: '.html',
+        defaultLayout: 'main',
+        helpers      : helpers,
+        partialsDir      : ['components']
+    }),
     router = require('./routes/init'),
-	// router = require('./routes/routes'),
     configFile = require('./config.json');
+
 
 
 if (!!configFile[process.env.NODE_ENV]) {
@@ -44,6 +44,15 @@ app.use(session({
     resave: true,
     saveUninitialized: false
 }));
+
+if (process.env.NODE_ENV === 'dev') {
+    // mock 功能
+    app.use(require('yog-devtools')({
+        view_path: '',    // 避免报错。
+        rewrite_file: [ path.join(basePath, 'mock/server.conf')],
+        data_path: [path.join(basePath, 'mock')]
+    }));
+}
 
 router(app);
 

@@ -39,7 +39,7 @@ module.exports = {
 
         for (var i = 0; i < len; i++) {
             (function(i) {
-                request.get({
+                request.post({
                     url: APIDOMAIN + urls[i].url,
                     json: true
                 }, function(err, response, body) {

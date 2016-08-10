@@ -3,7 +3,7 @@
 		"ENV": "DEV",
         "PORT": 8000,
  		"ROOT": "",
-        "APIDOMAIN": "http://127.0.0.1:8080"
+        "APIDOMAIN": "http://127.0.0.1:8000"
 	},
 	"prod": {
         "ENV": "PROD",
