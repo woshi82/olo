@@ -39,7 +39,7 @@ module.exports = generators.Base.extend({
         },  {
             type: 'list',
             name: 'type',
-            message: 'What type of scrat project to init?',
+            message: 'What type of olo project to init?',
             choices: [{
                 name: 'seo',
                 value: 'seo'
@@ -54,7 +54,6 @@ module.exports = generators.Base.extend({
             // }
             this.actName = answers.name;
             this.oloType = answers.type;
-            console.log("../"+this.oloType+"/app");
             this.composeWith("olo:seo", {
                 options: {
                     actName: this.actName,
