@@ -1,6 +1,6 @@
 {
   "name": "olo",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "基于fis3的框架",
   "main": "index.js",
   "bin": {
