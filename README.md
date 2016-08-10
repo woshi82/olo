@@ -59,7 +59,7 @@
 |---- views/           # 前端页面渲染
 |---- libs/            # 前端辅助类或工具类文件
 |---- mock/            # 模拟数据文件
-|---- server/          # Node服务
+|---- routes/          # Node服务
     |---- _conf.json   # 路由配置文件
     |---- init.js      # 路由派发规则解析文件
 |---- controllers/     # 前端页面渲染路由文件
@@ -116,19 +116,18 @@ module.exports = {
 ```javascript
 "controllers": {
     "root": "../controllers",
-    "map": [
-        {
-            "index|/": "index",
-            "index": "index",
-            "about/member": "member",
-            "about/member": {            #默认对应about.js
-                "user": "user"
-            }
-            "about-fn|about/member": {   #对应about-fn.js
-                "user": "user"
-            }
+    "map":{
+        "index|/": "index",
+        "index": "index",
+        "about/member": "member",
+        "about/member": {            #默认对应about.js
+            "user": "user"
         }
-    ]
+        "about-fn|about/member": {   #对应about-fn.js
+            "user": "user"
+        }
+    }
+    
 }
 ```
 3、 接口路由  **service>loginout.js**
@@ -158,12 +157,11 @@ module.exports = {
 ```javascript
 "service": {
     "root": "../service",
-    "map": [
-        {
-            "member": "member",
-            "auth/login": ["get", "login"],
-        }
-    ]
+    "map":{
+        "member": "member",
+        "auth/login": ["get", "login"],
+    }
+    
 }
 ```
 

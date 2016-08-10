@@ -7,7 +7,7 @@ var express = require('express'),
     session = require('express-session'),
     bodyParser = require('body-parser'),
 	exphbs = require('express-handlebars'),
-	helpers = require('./server/utils/helpers'),
+	helpers = require('./utils/helpers'),
     app = express(),
     basePath = process.cwd(),
     hbs = exphbs.create({
@@ -16,7 +16,7 @@ var express = require('express'),
 		helpers      : helpers,
 		partialsDir      : ['components']
 	}),
-    router = require('./server/init'),
+    router = require('./routes/init'),
 	// router = require('./routes/routes'),
     configFile = require('./config.json');
 

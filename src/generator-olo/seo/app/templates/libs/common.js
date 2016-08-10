@@ -15,10 +15,7 @@ if (!window.console || !console.firebug){
 $(document).ajaxError(function(event,xhr,options,exc){
     switch (xhr.status){
         case(500):
-            dialog({
-                title: '注意',
-                content: '服务器系统内部错误。'
-            }).showModal();
+            alert('服务器系统内部错误。');
             break;
         // case(401):
         //     alert("未登录");
@@ -27,15 +24,9 @@ $(document).ajaxError(function(event,xhr,options,exc){
         //     alert("无权限执行此操作");
         //     break;
         case(408):
-            dialog({
-                title: '注意',
-                content: '网络不给力，再试一次。'
-            }).showModal();
+            alert('网络不给力，再试一次。');
             break;
         default:
-            dialog({
-                title: '注意',
-                content: '未知错误。'
-            }).showModal();
+            alert('未知错误。');
     }
  });
