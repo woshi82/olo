@@ -8,6 +8,8 @@
 	"prod": {
         "ENV": "PROD",
 		"PORT": 8000,
- 		"ROOT": "<%= actName %>"
+ 		"ROOT": "<%= actName %>",
+        "APIDOMAIN": "http://127.0.0.1:8000"
+
 	}
 }

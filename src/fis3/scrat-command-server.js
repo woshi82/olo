@@ -134,6 +134,7 @@ exports.register = function(commander) {
         var childProcess = spawn(execPath, args, { cwd: root });
         childProcess.stderr.pipe(process.stderr);
         childProcess.stdout.pipe(process.stdout);
+        
         process.stderr.write(' ➜ ' + (live ? 'livereload ' : '') + 'server is running\n');
 
         fis.util.write(getPidFile(), childProcess.pid);

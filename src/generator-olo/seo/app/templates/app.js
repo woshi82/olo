@@ -6,6 +6,7 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     session = require('express-session'),
     bodyParser = require('body-parser'),
+    compression = require('compression'),
     exphbs = require('express-handlebars'),
     helpers = require('./utils/helpers'),
     app = express(),
@@ -31,6 +32,9 @@ if (!!configFile[process.env.NODE_ENV]) {
 app.engine('.html', hbs.engine);
 app.set('view engine', '.html');
 app.set('views', path.join(basePath, 'views/'));
+
+//压缩
+app.use(compression());
 
 app.use(express.static(path.join(basePath, 'public/')));
 app.use(favicon(basePath + '/public/images/favicon.ico'));
