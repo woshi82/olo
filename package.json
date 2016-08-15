@@ -1,7 +1,7 @@
 {
   "name": "olo",
   "version": "2.0.8",
-  "description": "基于fis3的框架",
+  "description": "基于fis3的前端工程流",
   "main": "index.js",
   "bin": {
     "olo": "index.js"
