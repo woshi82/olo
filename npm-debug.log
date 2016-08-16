@@ -1,0 +1,125 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.9.2
+3 info using node@v4.4.3
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/fruit/olo',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/zengyanling/.npm/olo/2.0.8/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/zengyanling/.npm correctMkdir not in flight; initializing
+10 info lifecycle olo@2.0.8~prepublish: olo@2.0.8
+11 silly lifecycle olo@2.0.8~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/zengyanling/.npm/olo/2.0.8/package.tgz',
+12 verbose tar pack   '/fruit/olo' ]
+13 verbose tarball /Users/zengyanling/.npm/olo/2.0.8/package.tgz
+14 verbose folder /fruit/olo
+15 verbose addLocalTarball adding from inside cache /Users/zengyanling/.npm/olo/2.0.8/package.tgz
+16 verbose correctMkdir /Users/zengyanling/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd olo@2.0.8
+18 verbose afterAdd /Users/zengyanling/.npm/olo/2.0.8/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/zengyanling/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/zengyanling/.npm/olo/2.0.8/package/package.json written
+21 silly publish { name: 'olo',
+21 silly publish   version: '2.0.8',
+21 silly publish   description: '基于fis3的前端工程流',
+21 silly publish   main: 'index.js',
+21 silly publish   bin: { olo: 'index.js' },
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   repository: { type: 'git', url: 'git+https://github.com/woshi82/olo.git' },
+21 silly publish   keywords: [ 'fis3', 'generator' ],
+21 silly publish   author: { name: 'zengyanling' },
+21 silly publish   license: 'ISC',
+21 silly publish   bugs: { url: 'https://github.com/woshi82/olo/issues' },
+21 silly publish   homepage: 'https://github.com/woshi82/olo#readme',
+21 silly publish   dependencies:
+21 silly publish    { chalk: '^1.1.3',
+21 silly publish      commander: '^2.9.0',
+21 silly publish      crypto: '0.0.3',
+21 silly publish      extend: '^3.0.0',
+21 silly publish      'fis-parser-biketo-handlebars': '^1.2.1',
+21 silly publish      'fis-parser-node-sass': '^0.1.9',
+21 silly publish      'fis-preprocessor-browserify': '^0.2.1',
+21 silly publish      fis3: '^3.4.22',
+21 silly publish      'fis3-hook-relative': '^1.0.9',
+21 silly publish      glob: '^7.0.3',
+21 silly publish      hasbin: '^1.2.1',
+21 silly publish      lodash: '^4.11.2',
+21 silly publish      'node-dev': '^3.1.1',
+21 silly publish      open: '0.0.5',
+21 silly publish      'pretty-bytes': '^3.0.1',
+21 silly publish      request: '^2.72.0',
+21 silly publish      'source-map': '^0.5.6',
+21 silly publish      'url-join': '^1.1.0',
+21 silly publish      'yeoman-environment': '^1.6.1',
+21 silly publish      'yeoman-generator': '^0.22.6' },
+21 silly publish   readme: '﻿# olo\n\n  一个自动化前端开发工程流的工具包。里面包括**seo**、**seo-php**模式。\n  > _共同点_：都是具有PC端SEO优化的工作流程。都采用了node服务，通过fis3进行资源定位及优化。  \n  > _区别_：  \n        **seo-php**用的是generator-biketo的开发流程，模版渲染部分由PHP负责。最后产出在后台的服务上运行项目。  \n        **seo**采用了node服务，以handlebars为模版引擎，实现了页面的自动路由功能。最后产出在node服务上运行。  \n\n## 更新\n**v2.0.8**\n\n 1. `seo模式`解决.gitignore被NPM改变文件名BUG\n 2. `seo模式`将mock数据功能直接嵌入到服务中，优化开发流程。\n 2. `seo模式`增加gzip压缩功能。\n 3. `seo模式`修改airbnb规范说明。\n\n**v2.0.0**\n\n 1. `seo模式`修复路由文件名限制、优化路由、增加无配置文件路由。\n 2. `seo模式`规范通用JS请求。\n 3. `seo模式`增加注释，规范代码，增加eslint,增加airbnb规范。\n 4. `seo模式`嵌入模拟数据。\n\n## 安装\n    npm i olo -g\n\n## 基本命令  \n> 所有命令的参数都可以通过`olo ** -h`查看  \n\n#### 初始化\n    olo init  \n#### 生成视图\n    olo v view-name  \n#### 生成组件\n    olo c component-name  \n#### 监听项目\n    olo w\n> 启动项目中包括清空本地fis3服务文件的`server clean`，清空编译缓存、自动刷新、实时监听`release -clw`。\n\n#### 开启服务  \n    olo s  \n#### 发布  \n    olo r\n## 新建项目\n```\n    mkdir my-project\n    cd my-project\n    olo init\n    olo v view-name (可选)\n    olo c component-name (可选)\n    olo s (或者) npm run start\n    olo w (或者) npm run watch\n```\n#### 一. 公用配置\n![config配置](assets/config.jpg)\n\n#### 二. seo\n\n##### 目录结构\n![seo目录结构](assets/seo.png)\n```\n|---- assets           # 静态文件目录\n      |---- images     # 图片文件\n      |---- scss       # 通用样式文件\n|---- components/      # 页面组件文件\n|---- views/           # 前端页面渲染\n|---- libs/            # 前端辅助类或工具类文件\n|---- mock/            # 模拟数据文件\n|---- routes/          # Node路由\n    |---- _conf.json   # 路由配置文件\n    |---- init.js      # 路由派发规则解析文件\n|---- controllers/     # 前端页面渲染路由文件\n|---- service/         # 前端接口路由文件\n|---- middleware/      # 路由中间件    \n|---- utils/           # 后端辅助类或工具类文件\n|---- app.js           # 系统启动文件\n|---- config.json      # 系统环境配置文件\n|---- fis-conf.js      # fis3 配置文件\n|---- pm2.json         # pm2 配置文件\n|---- package.json     # 管理项⽬的依赖\n|---- .editorconfig    # ediforconfig 代码书写配置文件\n|---- .eslintrc        # eslint 代码规范性检查配置文件\n|---- .gitignore       # git 仓库文件忽略配置\n```\n##### 数据模拟\nmock数据功能内嵌在node服务中，功能用法和fis文档上说明的一样。`http://fis.baidu.com/fis3/docs/node-mock.html`\n##### 注意事项\n1、 页面路由  **controllers>index.js**\n```javascript\nmodule.exports = {\n    路由名称: ［中间件（可选）,函数］,\n    路由名称: 函数,\n    index: [midUser.hasLogin,function(req,res){\n        res.render(\'index\',{username: req.session.username});\n    }]\n    index1 : function(req,res){\n        res.render(\'index\',{username: req.session.username});\n    }\n};\n```\n2、 页面路由配置  **server>_conf.json>controllers**  \n```\n一级路由:接口名称 \n一级路由:{  \n    二级路由:接口名称\n    二级路由/三级路由: 接口名称\n    二级路由:{\n        三级路由:接口名称\n        ```\n    }\n}\n(或)\n一级路由/二级路由: 接口名称\n一级路由/二级路由/```: 接口名称\n\n路由函数名|一级路由:接口名称\n```\n>*1、一级路由默认对应‘路由函数名称’，即：所有路由对应`一级路由.js`的路由函数。*  \n>*2、如果需要自定义路由函数可以借助分隔符`|`,即：`路由函数名|一级路由`。*  \n>*3、controllers中路由方式默认是GET。*\n\n```javascript\n"controllers": {\n    "root": "../controllers",\n    "map":{\n        "index|/": "index",\n        "index": "index",\n        "about/member": "member",\n        "about/member": {            #默认对应about.js\n            "user": "user"\n        }\n        "about-fn|about/member": {   #对应about-fn.js\n            "user": "user"\n        }\n    }\n    \n}\n```\n3、 接口路由  **service>loginout.js**\n```javascript\nmodule.exports = {\n    路由名称: 函数,\n    login : function(req,res){\n        //一般在这里进行数据请求\n    }\n};\n```\n4、 接口路由配置  **server>_conf.json>service**   \n```javascript\n一级路由:接口名称\n一级路由:{\n    二级路由:接口名称\n}\n(或)\n一级路由/二级路由: 接口名称\n\n一级路由:［请求方式，接口名称］\n```\n>*1、一级路由默认对应‘路由函数名称’，即：所有路由对应`一级路由.js`的路由函数。*  \n>*2、如果需要自定义路由函数可以借助分隔符`|`,即：`路由函数名|一级路由`。*  \n>*3、service中路由方式默认是POST,如果需要get方式，可用：`［"get","接口名"］`。*\n\n```javascript\n"service": {\n    "root": "../service",\n    "map":{\n        "member": "member",\n        "auth/login": ["get", "login"],\n    }\n    \n}\n```\n\n#### 三. seo-php\n> 功能、用法与`generator-biketo`相类似。\n\n##### 目录结构\n![seo-php目录结构](assets/seo-php.jpg)  \n**assets** 静态文件，包括图片和初始化css;   \n**c** 组件;  \n**libs** 公用类库;  \n**server** node服务;  \n**views** 页面视图;  \n**config.json** 发布产出、接口配置;  \n**fis-conf.js** fis 配置;  \n**package.json** 项目包配置.\n##### 注意事项\n1. `{{#if dev}}`*handlebars*语法区分纯前端开发和后台模板开发；\n2. `{{> cmp}}`引入组件；\n3. 可以自行加入`helper`并在_conf.js_中的*handlebars*配置项中配置；\n\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '4b0c4d2a824fe37e768659ed3b47ebc1dd35ca36',
+21 silly publish   _id: 'olo@2.0.8',
+21 silly publish   _shasum: '44012b98729e4920971b83f4a450ed462c834a77',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name olo
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'olo',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   name: 'olo',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/olo
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/zengyanling/.npm/olo/2.0.8/package.tgz
+30 verbose request uri https://registry.npmjs.org/olo
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 10:41:08
+33 verbose request using bearer token for auth
+34 verbose request id 7a0bfca97f8b5e69
+35 http request PUT https://registry.npmjs.org/olo
+36 http 403 https://registry.npmjs.org/olo
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '95',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Tue, 16 Aug 2016 02:41:22 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-lcy1133-LCY',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1471315273.470585,VS0,VE9184',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating /Users/zengyanling/.npm/registry.npmjs.org/olo on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 2.0.8." : olo
+40 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+40 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+40 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:200:22)
+40 verbose stack     at emitTwo (events.js:87:13)
+40 verbose stack     at Request.emit (events.js:172:7)
+40 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+40 verbose stack     at emitOne (events.js:82:20)
+40 verbose stack     at Request.emit (events.js:169:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:988:12)
+41 verbose statusCode 403
+42 verbose pkgid olo
+43 verbose cwd /fruit/olo
+44 error Darwin 15.5.0
+45 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+46 error node v4.4.3
+47 error npm  v3.9.2
+48 error code E403
+49 error "You cannot publish over the previously published version 2.0.8." : olo
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
