@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module 首页页面
+ * @module 首页页面示例
  * @version 1.0
  * @author Xxx
  */

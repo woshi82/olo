@@ -1,6 +1,11 @@
+'use strict';
 /**
- * node服务入口文件
+ * app.js
+ * @version 1.0
+ * @description node服务入口文件
+ * @author Xxx
  */
+
 var express = require('express'),
     path = require('path'),
     favicon = require('serve-favicon'),
@@ -33,7 +38,7 @@ app.engine('.html', hbs.engine);
 app.set('view engine', '.html');
 app.set('views', path.join(basePath, 'views/'));
 
-//压缩
+//压缩静态文件
 app.use(compression());
 
 app.use(express.static(path.join(basePath, 'public/')));

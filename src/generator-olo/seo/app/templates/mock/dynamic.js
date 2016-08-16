@@ -1,3 +1,11 @@
+'use strict';
+/**
+ * dynamic.js
+ * @version 1.0
+ * @description 动态模拟数据示例
+ * @author Xxx
+ */
+
 var Mock = require('mockjs');
 module.exports = function(req, res, next) {
     var mock_data =  Mock.mock( {

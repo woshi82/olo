@@ -1,6 +1,11 @@
+'use strict';
 /**
- * 数据统计
+ * statistics.js
+ * @version 1.0
+ * @description 数据统计
+ * @author Xxx
  */
+
 var _hmt = _hmt || [];
 _hmt.push(['_setCustomVar', 1, 'navid', '']);
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");

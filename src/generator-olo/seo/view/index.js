@@ -15,7 +15,7 @@ module.exports = generators.Base.extend({
 
         this.argument('viewName', { type: String, required: true });
         
-        this.viewName = _.camelCase(this.viewName).toLowerCase();
+        // this.viewName = _.camelCase(this.viewName).toLowerCase();
     },
     // 创建文件结构
     makeProjectDirectoryStructure: function () {

@@ -1,3 +1,10 @@
+'use strict';
+/**
+ * common.js
+ * @version 1.0
+ * @description 共用初始化
+ * @author Xxx
+ */
 window.$ = require('./jquery.min');
 /**
  * IE console兼容
