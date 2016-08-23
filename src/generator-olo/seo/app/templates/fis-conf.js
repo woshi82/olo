@@ -49,7 +49,7 @@ fis.match(/^\/assets\/scss\/((.*)\.htc)$/, {
     release: '${base.static}/$1'
 });
 
-fis.match(/^\/views\/([^\/]+)\/(.*)\.scss$/, {
+fis.match(/^\/views\/([^\/]+)\/(.*)$/, {
     release: 　 '/${base.static}/$2',
     url:'${base.urlRoot}/$2'
 });

@@ -34,12 +34,19 @@ olo
         generators('c', 'create', name);
     });
 
-olo
+olo 
     .command('i [cmp]')
     .alias('install')
     .description('install component(s) from git.biketo.com.cn/')
     .action(function (cmp) {
         generators('c', 'i', cmp);
+    });
+olo 
+    .command('f <name>')
+    .alias('frame')
+    .description('install frame(s) from olo')
+    .action(function (name) {
+        generators('frame', name);
     });
 
 /**

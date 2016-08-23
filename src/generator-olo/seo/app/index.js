@@ -14,7 +14,6 @@ module.exports = generators.Base.extend({
         generators.Base.apply(this, arguments);
 
         this.actName = options.actName;
-        this.oloType = options.oloType;
 
     },
     // 创建文件结构

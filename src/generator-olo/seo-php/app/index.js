@@ -10,7 +10,6 @@ module.exports = generators.Base.extend({
         // console.log(options);
 
         this.actName = options.actName;
-        this.oloType = options.oloType;
 
     },
     // 创建文件结构
