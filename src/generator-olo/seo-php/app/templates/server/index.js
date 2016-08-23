@@ -5,6 +5,16 @@ var express = require('express'),
     ROOT = process.env.root?('/' + process.env.root):'',
     BASE_DIR = path.join(__dirname, '..');    
 
+// if (process.env.NODE_ENV === 'dev') {
+    // mock 功能
+    app.use(require('yog-devtools')({
+        view_path: '',    // 避免报错。
+        rewrite_file: [ path.join(BASE_DIR, 'mock/server.conf')],
+        data_path: [path.join(BASE_DIR, 'mock')]
+    }));
+// }
+
+
 app.use(express.static(BASE_DIR, {}));
 
 /**

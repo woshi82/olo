@@ -1,6 +1,5 @@
-// var $ = require('../../libs/jquery.min');
-
-// require('../../cmp/cmpName/cmpName');
+'use strict';
+// require('../../c/cmpName/cmpName');
 
 
 

@@ -5,11 +5,12 @@
  * @description 共用初始化
  * @author Xxx
  */
-window.$ = require('./jquery.min');
+__inline('./jquery.min.js');
+
 /**
  * IE console兼容
  */
-if (!window.console || !console.firebug){
+if (!window.console && !console.firebug){
     var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];
 
     window.console = {};

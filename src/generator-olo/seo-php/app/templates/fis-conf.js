@@ -13,6 +13,14 @@ fis.set('base.port',process.env.port);
 fis.set('base.root', config.root);
 fis.set('base.static',config.root + '/public');
 fis.media('prod').set('charset', 'gb2312');
+
+// fis.hook('relative');
+
+// 让所有文件，都使用相对路径。
+// fis.match('**', {
+//   relative: true
+// });
+
 // 默认开启 handlebars
 fis.match('*.handlebars', {
     parser: fis.plugin('biketo-handlebars', {
@@ -55,7 +63,10 @@ fis.match(/^\/views\/([^\/]+)\/\1-mock.js$/, {
 fis.match(/^\/(([^\/]+)\/)*images\/(.*)$/, {
     release: '/${base.static}/images/$3'
 });
-
+fis.match(/^\/libs\/((jquery).*)\.js$/, {
+    release: '/${base.static}/js/$1.js',
+    // url: '.${base.static}/jquery.js'
+});
 
 fis.match(/^\/views\/([^\/]+)\/\1.handlebars$/, {
     release: '/${base.root}/$1'

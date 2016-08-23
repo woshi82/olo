@@ -33,9 +33,8 @@ fis.match(/^\/components\/([^\/]+)\/(.*)(\.scss|js)$/,{
 fis.match('libs/**',{
     release: false
 });
-fis.match(/^\/libs\/((jquery\.min|common|statistics)\.js)$/,{
+fis.match(/^\/libs\/((common|statistics)\.js)$/,{
     release: '${base.static}/$1',
-    preprocessor: fis.plugin('browserify'),
     url:'${base.urlRoot}/$1'
 });
 fis.match(/^\/assets\/(.*)$/,{

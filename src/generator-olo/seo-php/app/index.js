@@ -22,6 +22,7 @@ module.exports = generators.Base.extend({
         this.directory('server', 'server');
         this.directory('libs', 'libs');
         this.directory('assets', 'assets');
+        this.directory('mock', 'mock');
         this.copy('fis-conf.js', 'fis-conf.js');
         
 
