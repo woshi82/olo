@@ -14,11 +14,11 @@ fis.require.paths.push(path.join(path.dirname(__dirname), 'node_modules'));
 
 
 // 默认开启 browserify debug
-fis.config.set('settings.preprocessor.browserify', {
-    browserify: {
-        debug: true
-    }
-});
+// fis.config.set('settings.preprocessor.browserify', {
+//     browserify: {
+//         debug: true
+//     }
+// });
 
 // 默认开启 sass
 fis.match('*.{scss,sass}', {

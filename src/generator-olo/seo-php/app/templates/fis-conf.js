@@ -26,8 +26,8 @@ fis.match('*.handlebars', {
     parser: fis.plugin('biketo-handlebars', {
         opts: {
             ignorePartials: true,
-            partialRoot: 'c/',
-            dataRoot: ['c/', 'views/'],
+            partialRoot: 'cmp/',
+            dataRoot: ['cmp/', 'views/'],
             helpers: {
 
             }
@@ -52,22 +52,29 @@ fis.match(/^\/assets\/(([^\/]+)\/)*(.*)$/, {
 fis.match(/^\/assets\/scss\/(.*)$/, {
     release: false
 });
-fis.match(/^\/views\/([^\/]+)\/(.*)$/, {
+// fis.match(/^\/assets\/scss\/((.*)\.htc)$/, {
+//     release: '${base.static}/$1'
+// });
+
+
+fis.match(/^\/(([^\/]+)\/)*images\/(.*)$/, {
+    release: '/${base.static}/images/$3'
+});
+fis.match(/^\/libs\/((jquery).*)\.js$/, {
+    release: '/${base.static}/$1.js',
+    // url: '.${base.static}/jquery.js'
+});
+
+fis.match(/^\/views\/([^\/]+)\/(.*)\.scss$/, {
+    release: 　 '/${base.static}/$2'
+});
+fis.match(/^\/views\/([^\/]+)\/(.*)\.js$/, {
     release: 　 '/${base.static}/$2',
     preprocessor: fis.plugin('browserify')
 });
 fis.match(/^\/views\/([^\/]+)\/\1-mock.js$/, {
     release: false
 });
-
-fis.match(/^\/(([^\/]+)\/)*images\/(.*)$/, {
-    release: '/${base.static}/images/$3'
-});
-fis.match(/^\/libs\/((jquery).*)\.js$/, {
-    release: '/${base.static}/js/$1.js',
-    // url: '.${base.static}/jquery.js'
-});
-
 fis.match(/^\/views\/([^\/]+)\/\1.handlebars$/, {
     release: '/${base.root}/$1'
 });

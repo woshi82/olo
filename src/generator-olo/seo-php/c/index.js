@@ -18,10 +18,10 @@ module.exports = generators.Base.extend({
             this.log(chalk.red('Error'), 'arg `cmpName` NOT found!');
             return;
         }
-        // 固定入口文件为 `c/${cmpName}/index.${handlebars|js|scss}`
+        // 固定入口文件为 `cmp/${cmpName}/index.${handlebars|js|scss}`
         
         this.cmpName = _.kebabCase(this.cmpName);
-        var componentPath = 'c/' + this.cmpName;
+        var componentPath = 'cmp/' + this.cmpName;
         var cmpName = componentPath  + '/' + this.cmpName;
         // this.directory('images', componentPath + '/images');
         this.template('_cmp.js', cmpName + '.js');
