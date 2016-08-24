@@ -13,6 +13,7 @@ module.exports = generators.Base.extend({
 
         generators.Base.apply(this, arguments);
 
+        this.oloType = options.oloType;
         this.actName = options.actName;
 
     },
@@ -23,7 +24,8 @@ module.exports = generators.Base.extend({
         this.template('_pm2.json', 'pm2.json');
         this.copy('app.js', 'app.js');
         this.copy('fis-conf.js', 'fis-conf.js');
-        // this.copy('.bowerrc', '.bowerrc');
+        this.copy('.bowerrc', '.bowerrc');
+        
         this.copy('.eslintrc', '.eslintrc');
         this.copy('.editorconfig', '.editorconfig');
         this.copy('gitignore', '.gitignore');

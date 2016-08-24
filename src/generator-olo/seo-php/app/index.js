@@ -8,7 +8,8 @@ module.exports = generators.Base.extend({
         
         generators.Base.apply(this, arguments);
         // console.log(options);
-
+        this.oloType = options.oloType;
+        
         this.actName = options.actName;
 
     },
@@ -16,7 +17,9 @@ module.exports = generators.Base.extend({
     makeProjectDirectoryStructure: function () {
         this.template('_package.json', 'package.json');
         this.template('_config.json', 'config.json');
-        // this.copy('.bowerrc', '.bowerrc');
+        this.copy('.bowerrc', '.bowerrc');
+        this.copy('.eslintrc', '.eslintrc');
+        this.copy('.editorconfig', '.editorconfig');
 
         this.directory('server', 'server');
         this.directory('libs', 'libs');

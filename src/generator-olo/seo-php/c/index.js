@@ -45,10 +45,16 @@ module.exports = generators.Base.extend({
         }
         // git 仓库 component
         // http://git.biketo.com.cn/front-end/biketo_project_static.git
-        cmpnt = 'git@git.biketo.com.cn:front-end/'+cmpnt ;
+        // cmpnt = 'git@git.biketo.com.cn:front-end/'+cmpnt ;
+        cmpnt = 'git@github.com:general-cmps/'+cmpnt ;
+        // cmpnt = 'git@git.biketo.com.cn:front-end/com_news.git' ;
+        console.log(cmpnt);
         // 通过 bower 下载
         this.bowerInstall(cmpnt, {
             save: true
+        },function(e){
+            console.log(e);
+            console.log('OK');
         });
     },
     // 主函数：创建文件结构

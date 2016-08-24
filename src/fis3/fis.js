@@ -19,7 +19,11 @@ fis.require.paths.push(path.join(path.dirname(__dirname), 'node_modules'));
 //         debug: true
 //     }
 // });
-
+// 默认开启 handlebars
+fis.match('*.handlebars', {
+    isHtmlLike: true,
+    rExt: 'html'
+});
 // 默认开启 sass
 fis.match('*.{scss,sass}', {
     parser: fis.plugin('node-sass'),
@@ -34,11 +38,7 @@ fis.config.set('settings.spriter.csssprites', {
     margin: 10
     // layout: 'matrix'
 });
-// 默认开启 handlebars
-fis.match('*.handlebars', {
-    isHtmlLike: true,
-    rExt: 'html'
-});
+
 
 
 
