@@ -29,8 +29,8 @@ module.exports = generators.Base.extend({
         } catch (e) {
             // console.log(e);
         }
-
-
+        
+        var done = this.async();    
         this.prompt([{
             type: 'input',
             name: 'name',
@@ -47,19 +47,16 @@ module.exports = generators.Base.extend({
                 name: 'seo-php',
                 value: 'seo-php'
             }]
-        }], function(answers) {
-            // {
-            //     name: 'webapp',
-            //     value: 'webapp'
-            // }
+        }]).then(function(answers) {
+            this.log(answers);
+            
             this.actName = answers.name;
             this.oloType = answers.type;
-            this.composeWith("olo:seo", {
+            this.composeWith("olo:"+this.oloType, {
                 options: {
-                    actName: this.actName,
-                    oloType: this.oloType
+                    oloType: this.oloType,
+                    actName: this.actName
                 }
-                // args: [this.appname]
             }, {
                 local: require.resolve("../"+this.oloType+"/app")
             });

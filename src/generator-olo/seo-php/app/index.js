@@ -4,13 +4,11 @@ var generators = require('yeoman-generator');
 var _ = require('lodash');
 
 module.exports = generators.Base.extend({
-    constructor: function (args, options, config) {
+    constructor: function () {
         
         generators.Base.apply(this, arguments);
-        // console.log(options);
-        this.oloType = options.oloType;
-        
-        this.actName = options.actName;
+        this.oloType = this.options.oloType;
+        this.actName = this.options.actName;
 
     },
     // 创建文件结构

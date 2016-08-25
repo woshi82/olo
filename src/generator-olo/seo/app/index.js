@@ -9,13 +9,11 @@ var generators = require('yeoman-generator');
 var _ = require('lodash');
 
 module.exports = generators.Base.extend({
-    constructor: function (args, options, config) {
-
+    constructor: function () {
+        
         generators.Base.apply(this, arguments);
-
-        this.oloType = options.oloType;
-        this.actName = options.actName;
-
+        this.oloType = this.options.oloType;
+        this.actName = this.options.actName;
     },
     // 创建文件结构
     makeProjectDirectoryStructure: function () {
@@ -34,7 +32,7 @@ module.exports = generators.Base.extend({
         this.directory('libs', 'libs');
         this.directory('assets', 'assets');
         this.directory('views', 'views');
-        this.directory('components', 'components');
+        this.directory('components', 'cmp');
         this.directory('mock', 'mock');
 
         // this.directory('server', 'server');

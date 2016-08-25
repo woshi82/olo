@@ -28,7 +28,7 @@ fis.set('new date', Date.now());
 fis.match('*',{
     release: '${base.root}/$0',
 });
-fis.match(/^\/components\/([^\/]+)\/(.*)(\.scss|js)$/,{
+fis.match(/^\/cmp\/([^\/]+)\/(.*)(\.scss|js)$/,{
     release: false
 });
 fis.match('libs/**',{

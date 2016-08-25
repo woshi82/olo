@@ -20,7 +20,7 @@ var express = require('express'),
         extname: '.html',
         defaultLayout: 'main',
         helpers      : helpers,
-        partialsDir      : ['components']
+        partialsDir      : ['cmp']
     }),
     router = require('./routes/init'),
     configFile = require('./config.json');

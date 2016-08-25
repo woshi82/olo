@@ -26,7 +26,7 @@ module.exports = generators.Base.extend({
         // 固定入口文件为 `c/${cmpName}/index.${handlebars|js|scss}`
 
         this.cmpName = _.kebabCase(this.cmpName);
-        var componentPath = 'components/' + this.cmpName;
+        var componentPath = 'cmp/' + this.cmpName;
         var cmpName = componentPath  + '/' + this.cmpName;
         // this.directory('images', componentPath + '/images');
         this.template('_cmp.js', cmpName + '.js');
@@ -48,8 +48,8 @@ module.exports = generators.Base.extend({
             return;
         }
         // git 仓库 component
-        // http://git.biketo.com.cn/front-end/biketo_project_static.git
-        cmpnt = 'git@git.biketo.com.cn:front-end/'+cmpnt ;
+        cmpnt = 'git@github.com:general-cmps/'+cmpnt ;
+        
         // 通过 bower 下载
         this.bowerInstall(cmpnt, {
             save: true

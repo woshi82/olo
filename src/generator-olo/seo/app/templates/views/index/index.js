@@ -6,4 +6,4 @@
  * @author Xxx
  */
 
-// require('../../components/cmpName/cmpName');
+// require('../../cmp/cmpName/cmpName');
