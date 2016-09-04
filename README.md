@@ -44,7 +44,8 @@
     olo c component-name 
 #### 增加第三方包
     olo f lib-name  
-> olo f jq ｜ jquery | ejs | throttle |  zepto
+> olo f jq ｜ jquery | ejs | throttle |  zepto  
+
 #### 监听项目
     olo w
 > 启动项目中包括清空本地fis3服务文件的`server clean`，清空编译缓存、自动刷新、实时监听`release -clw`。
