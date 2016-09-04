@@ -60,9 +60,8 @@ fis.match(/^\/assets\/scss\/(.*)$/, {
 fis.match(/^\/(([^\/]+)\/)*images\/(.*)$/, {
     release: '/${base.static}/images/$3'
 });
-fis.match(/^\/libs\/((jquery).*)\.js$/, {
-    release: '/${base.static}/$1.js',
-    // url: '.${base.static}/jquery.js'
+fis.match(/^\/libs\/((common).*)\.js$/, {
+    release: '/${base.static}/$1.js'
 });
 
 fis.match(/^\/views\/([^\/]+)\/(.*)$/, {

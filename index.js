@@ -59,7 +59,6 @@ olo
     .option('--child-flag', 'hack fis3-release-watch --child-flag')
     .action(function () {
         // server.clean();
-
         release({
             // c: true,
             w: true,

@@ -48,7 +48,6 @@ module.exports = generators.Base.extend({
                 value: 'seo-php'
             }]
         }]).then(function(answers) {
-            this.log(answers);
             
             this.actName = answers.name;
             this.oloType = answers.type;

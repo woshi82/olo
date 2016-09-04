@@ -18,6 +18,7 @@ module.exports = generators.Base.extend({
         this.copy('.bowerrc', '.bowerrc');
         this.copy('.eslintrc', '.eslintrc');
         this.copy('.editorconfig', '.editorconfig');
+        this.copy('gitignore', '.gitignore');
 
         this.directory('server', 'server');
         this.directory('libs', 'libs');

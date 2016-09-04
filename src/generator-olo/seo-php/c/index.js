@@ -49,7 +49,6 @@ module.exports = generators.Base.extend({
         this.bowerInstall(cmpnt, {
             save: true
         },function(e){
-            console.log(e);
             console.log('OK');
         });
     },

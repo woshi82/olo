@@ -4,9 +4,18 @@
   > _共同点_：都是具有PC端SEO优化的工作流程。都采用了node服务，通过fis3进行资源定位及优化。  
   > _区别_：  
         **seo-php**用的是generator-biketo的开发流程，模版渲染部分由PHP负责。最后产出在后台的服务上运行项目。  
-        **seo**采用了node服务，以handlebars为模版引擎，实现了页面的自动路由功能。最后产出在node服务上运行。  
+        **seo**采用了node服务，以handlebars为模版引擎，实现了页面的自动路由功能。最后产出在node服务上运行。是一种前后端分离的开发模式。  
 
 ## 更新
+**v2.0.13**
+
+ 1. 支持node 6.x。
+ 2. 在生产环境下给产出目录添加项目名，方便在fis3自带服务下启动多个项目。
+ 3. `seo-php模式`添加common.js。
+ 4. `seo-php模式`html的charset改为utf-8。
+ 5. 添加`olo f 框架名`，可快速添加常用包。
+ 6. `common.js`ajax错误提示更改成console形式。
+ 
 **v2.0.8**
 
  1. `seo模式`解决.gitignore被NPM改变文件名BUG
@@ -32,7 +41,10 @@
 #### 生成视图
     olo v view-name  
 #### 生成组件
-    olo c component-name  
+    olo c component-name 
+#### 增加第三方包
+    olo f lib-name  
+> olo f jq ｜ jquery | ejs | throttle |  zepto
 #### 监听项目
     olo w
 > 启动项目中包括清空本地fis3服务文件的`server clean`，清空编译缓存、自动刷新、实时监听`release -clw`。
@@ -52,38 +64,54 @@
     olo w (或者) npm run watch
 ```
 #### 一. 公用配置
-![config配置](assets/config.jpg)
-
+```
+{
+    "dev": {
+        "ENV": "DEV",
+        "PORT": 8000,
+        "ROOT": "good",
+        "APIDOMAIN": "http://127.0.0.1:8000/good"
+    },
+    "prod": {
+        "ENV": "PROD",
+        "PORT": 8000,
+        "ROOT": "good",
+        "APIDOMAIN": "http://127.0.0.1:8000/good"
+    }
+}
+```
 #### 二. seo
 
 ##### 目录结构
-![seo目录结构](assets/seo.png)
+
 ```
-|---- assets           # 静态文件目录
-      |---- images     # 图片文件
-      |---- scss       # 通用样式文件
-|---- components/      # 页面组件文件
-|---- views/           # 前端页面渲染
-|---- libs/            # 前端辅助类或工具类文件
-|---- mock/            # 模拟数据文件
-|---- routes/          # Node路由
-    |---- _conf.json   # 路由配置文件
-    |---- init.js      # 路由派发规则解析文件
-|---- controllers/     # 前端页面渲染路由文件
-|---- service/         # 前端接口路由文件
-|---- middleware/      # 路由中间件    
-|---- utils/           # 后端辅助类或工具类文件
-|---- app.js           # 系统启动文件
-|---- config.json      # 系统环境配置文件
-|---- fis-conf.js      # fis3 配置文件
-|---- pm2.json         # pm2 配置文件
-|---- package.json     # 管理项⽬的依赖
-|---- .editorconfig    # ediforconfig 代码书写配置文件
-|---- .eslintrc        # eslint 代码规范性检查配置文件
-|---- .gitignore       # git 仓库文件忽略配置
+|---- assets            # 静态文件目录
+    |---- images        # 图片文件
+    |---- scss          # 通用样式文件
+|---- components/       # 页面组件文件
+|---- views/            # 前端页面渲染
+|---- libs/             # 前端辅助类或工具类文件
+    |---- common.js     # 在此文件引入的第三方插件不会模块化（例：jquery），项目中可以直接用($)
+    |---- statistics.js #统计数据，放在html的最后。
+|---- mock/             # 模拟数据文件
+|---- routes/           # Node路由
+    |---- _conf.json    # 路由配置文件
+    |---- init.js       # 路由派发规则解析文件
+|---- controllers/      # 前端页面渲染路由文件
+|---- service/          # 前端接口路由文件
+|---- middleware/       # 路由中间件    
+|---- utils/            # 后端辅助类或工具类文件
+|---- app.js            # 系统启动文件
+|---- config.json       # 系统环境配置文件
+|---- fis-conf.js       # fis3 配置文件
+|---- pm2.json          # pm2 配置文件
+|---- package.json      # 管理项⽬的依赖
+|---- .editorconfig     # ediforconfig 代码书写配置文件
+|---- .eslintrc         # eslint 代码规范性检查配置文件
+|---- .gitignore        # git 仓库文件忽略配置
 ```
 ##### 数据模拟
-mock数据功能内嵌在node服务中，功能用法和fis文档上说明的一样。`http://fis.baidu.com/fis3/docs/node-mock.html`
+mock数据功能内嵌在node服务中，功能用法和fis文档上说明的一样。[http://fis.baidu.com/fis3/docs/node-mock.html][1]
 ##### 注意事项
 1、 页面路由  **controllers>index.js**
 ```javascript
@@ -175,17 +203,28 @@ module.exports = {
 > 功能、用法与`generator-biketo`相类似。
 
 ##### 目录结构
-![seo-php目录结构](assets/seo-php.jpg)  
-**assets** 静态文件，包括图片和初始化css;   
-**c** 组件;  
-**libs** 公用类库;  
-**server** node服务;  
-**views** 页面视图;  
-**config.json** 发布产出、接口配置;  
-**fis-conf.js** fis 配置;  
-**package.json** 项目包配置.
+```
+|---- assets            # 静态文件目录
+    |---- images        # 图片文件
+    |---- scss          # 通用样式文件
+|---- components/       # 页面组件文件
+|---- views/            # 前端页面渲染
+|---- libs/             # 前端辅助类或工具类文件
+    |---- common.js     # 在此文件引入的第三方插件不会模块化（例：jquery），项目中可以直接用($)
+    |---- statistics.js #统计数据，放在html的最后。
+|---- mock/             # 模拟数据文件
+|---- controllers/      # 前端页面渲染路由文件
+|---- service/          # 前端接口路由文件  
+|---- utils/            # 后端辅助类或工具类文件
+|---- app.js            # 系统启动文件
+|---- config.json       # 系统环境配置文件
+|---- fis-conf.js       # fis3 配置文件
+|---- package.json      # 管理项⽬的依赖
+|---- .editorconfig     # ediforconfig 代码书写配置文件
+|---- .eslintrc         # eslint 代码规范性检查配置文件
+|---- .gitignore        # git 仓库文件忽略配置
+```
 ##### 注意事项
 1. `{{#if dev}}`*handlebars*语法区分纯前端开发和后台模板开发；
 2. `{{> cmp}}`引入组件；
-3. 可以自行加入`helper`并在_conf.js_中的*handlebars*配置项中配置；
-
+3. 可以自行加入`helper`并在 _conf.js_ 中的 *handlebars* 配置项中配置；
