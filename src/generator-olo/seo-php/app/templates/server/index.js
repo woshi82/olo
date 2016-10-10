@@ -2,16 +2,15 @@ var express = require('express'),
     path = require('path'),
     fs = require('fs'),
     app = express(),
-    ROOT = process.env.root?('/' + process.env.root):'',
-    BASE_DIR = path.join(__dirname, '..');    
+    BASE_DIR = path.join(__dirname, '..');
 
 // if (process.env.NODE_ENV === 'dev') {
-    // mock 功能
-    app.use(require('yog-devtools')({
-        view_path: '',    // 避免报错。
-        rewrite_file: [ path.join(BASE_DIR, 'mock/server.conf')],
-        data_path: [path.join(BASE_DIR, 'mock')]
-    }));
+// mock 功能
+app.use(require('yog-devtools')({
+    view_path: '', // 避免报错。
+    rewrite_file: [path.join(BASE_DIR, 'mock/server.conf')],
+    data_path: [path.join(BASE_DIR, 'mock')]
+}));
 // }
 
 
@@ -25,11 +24,11 @@ app.use(express.static(BASE_DIR, {}));
 function generate404HTML(pageName) {
     return [
         '<html><body>',
-            '<h1>404</h1>',
-            '<p>',
-                'page `<span style="color:red">',
-                pageName,
-            '</p>',
+        '<h1>404</h1>',
+        '<p>',
+        'page `<span style="color:red">',
+        pageName,
+        '</p>',
         '</body></html>'
     ].join('');
 }
@@ -38,9 +37,9 @@ function generate404HTML(pageName) {
  * @Important!!
  * 请保持这段代码在最后的位置，保证页面路由(/:pageName)的优先级不会高过于其它
  */
-app.get('/:pageName', function (req, res, next) {
+app.get('/:pageName', function(req, res, next) {
     var pageName = req.params.pageName,
-        filePath = path.resolve(BASE_DIR, (pageName||'index')+ '.html');
+        filePath = path.resolve(BASE_DIR, (pageName || 'index') + '.html');
     try {
         var stats = fs.lstatSync(filePath);
         if (stats.isFile()) {
@@ -48,15 +47,13 @@ app.get('/:pageName', function (req, res, next) {
         } else {
             res.status(400).send(generate404HTML(pageName));
         }
-    } catch(e) {
+    } catch (e) {
         res.status(400).send(generate404HTML(pageName));
     }
 });
 
 var PORT = process.env.port || 2000;
-express()
-    .use(ROOT, app)
-    .listen(PORT, function() {
-       ROOT? console.log('Server start! http://127.0.0.1:%d/%s/', PORT, process.env.root):console.log('Server start! http://127.0.0.1:%d/', PORT);
-    });
 
+app.listen(PORT, function() {
+    console.log('Server start! http://127.0.0.1:%d/', PORT);
+});

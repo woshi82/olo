@@ -19,8 +19,8 @@ var express = require('express'),
     hbs = exphbs.create({
         extname: '.html',
         defaultLayout: 'main',
-        helpers      : helpers,
-        partialsDir      : ['cmp']
+        helpers: helpers,
+        partialsDir: ['cmp']
     }),
     router = require('./routes/init'),
     configFile = require('./config.json');
@@ -57,8 +57,8 @@ app.use(session({
 if (process.env.NODE_ENV === 'dev') {
     // mock 功能
     app.use(require('yog-devtools')({
-        view_path: '',    // 避免报错。
-        rewrite_file: [ path.join(basePath, 'mock/server.conf')],
+        view_path: '', // 避免报错。
+        rewrite_file: [path.join(basePath, 'mock/server.conf')],
         data_path: [path.join(basePath, 'mock')]
     }));
 }
@@ -67,9 +67,7 @@ router(app);
 
 
 var PORT = process.env.PORT || 2000;
-var ROOT = process.env.ROOT?('/' + process.env.ROOT):'';
-express()
-    .use(ROOT, app)
-    .listen(PORT, function() {
-        ROOT? console.log('Server start! http://127.0.0.1:%d/%s/', PORT, process.env.ROOT):console.log('Server start! http://127.0.0.1:%d/', PORT);
-    });
+
+app.listen(PORT, function() {
+    console.log('Server start! http://127.0.0.1:%d/', PORT);
+});

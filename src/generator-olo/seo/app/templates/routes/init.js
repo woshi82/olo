@@ -9,7 +9,9 @@
 
 
 var path = require('path'),
-    fs = require('fs');
+    fs = require('fs'),
+    notFound = require('../middleware/notFound'),
+    errorHandler = require('../middleware/errorHandler');
 
 
 /** 路由配置函数 */
@@ -22,8 +24,14 @@ module.exports = function(app) {
         pageSettings = config.controllers.map,
         apiSettings = config.service.map;
 
+
     setRoute(pageSettings, pagePath, 'get');
     setRoute(apiSettings, apiPath, 'post');
+    /**
+     *  异常处理
+     */
+    app.use(notFound);
+    app.use(errorHandler);
 
     // 不用配置文件
     // setRouteNoSetting(pagePath,'get');
@@ -101,7 +109,7 @@ module.exports = function(app) {
          */
         function _setRouteType(obj, defaultMode) {
             var mode = defaultMode;
-            if (_isArray(obj) && (obj[0] === 'get' || obj[0] === 'post')) {
+            if (_isArray(obj) && (obj[0] === 'get' || obj[0] === 'post' || obj[0] === 'all')) {
                 mode = obj[0];
                 obj.shift();
             }
@@ -186,7 +194,7 @@ module.exports = function(app) {
             if (typeof routeDet === 'string') {
                 _routeFn = oFiles[fileName][routeDet];
             } else if (_isArray(routeDet)) {
-                if (routeDet[0] === 'get' || routeDet[0] === 'post') {
+                if (routeDet[0] === 'get' || routeDet[0] === 'post' || routeDet[0] === 'all') {
                     _mode = routeDet[0];
                     _routeFn = oFiles[fileName][routeDet[1]];
                 } else {

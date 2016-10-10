@@ -108,7 +108,8 @@ exports.register = function(commander) {
             } catch (e) {}
         }
 
-        return 'http://' + getLoaclIP() + ':' + envPort + '/' + projectPath;
+        return 'http://' + getLoaclIP() + ':' + envPort + '/';
+        // return 'http://' + getLoaclIP() + ':' + envPort + '/' + projectPath;
     }
 
     function lanuch() {
