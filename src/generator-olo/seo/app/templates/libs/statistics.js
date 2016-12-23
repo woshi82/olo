@@ -1,10 +1,11 @@
-'use strict';
 /**
  * statistics.js
  * @version 1.0
  * @description 数据统计
  * @author Xxx
  */
+
+'use strict';
 
 var _hmt = _hmt || [];
 _hmt.push(['_setCustomVar', 1, 'navid', '']);

@@ -5,4 +5,6 @@
  * @author Xxx
  */
 
+'use strict';
+
 // require('../../cmp/cmpName/cmpName');

@@ -66,7 +66,7 @@ if (process.env.NODE_ENV === 'dev') {
 router(app);
 
 
-var PORT = process.env.PORT || 2000;
+var PORT = process.env.PORT || 8000;
 
 app.listen(PORT, function() {
     console.log('Server start! http://127.0.0.1:%d/', PORT);

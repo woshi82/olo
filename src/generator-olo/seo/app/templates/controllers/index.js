@@ -1,10 +1,10 @@
-'use strict';
-
 /**
  * @module 首页页面示例
  * @version 1.0
  * @author Xxx
  */
+
+'use strict';
 
 var request = require('request'),
     eventProxy = require('eventproxy');

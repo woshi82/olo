@@ -1,9 +1,10 @@
-'use strict';
 /**
  * fis-conf.js
- * @version : 1.0
- * @功能说明 : fis3配置
+ * @version : 1.0.0
+ * @description fis3 settings
  */
+
+'use strict';
 
 var configFile = require('./config.json'),
     config = null,
@@ -19,11 +20,27 @@ if(process.argv.indexOf('prod') == -1){
 urlRoot = config.ROOT?'/'+config.ROOT:'';
 
 fis.set('base.urlRoot', urlRoot);
-fis.set('base.port',config.PORT);
+fis.set('base.port',config.PORT || 8000);
 fis.set('base.root', config.ROOT);
 fis.set('base.static',config.ROOT + '/public');
 fis.set('new date', Date.now());
 
+
+fis.match('*.handlebars', {
+    isHtmlLike: true,
+    rExt: 'html',
+    parser: fis.plugin('biketo-handlebars', {
+        opts: {
+            ignorePartials: true,
+            partialRoot: 'cmp/',
+            dataRoot: ['cmp/', 'views/'],
+            helpers: {
+
+            }
+        },
+        data: { dev: config.dev }
+    })
+});
 
 fis.match('*',{
     release: '${base.root}/$0',

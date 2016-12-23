@@ -7,5 +7,5 @@
 		"dev": false,
  		"root": "<%= actName %>"
 	},
-	"port": 2000
+	"port": 8000
 }

@@ -52,7 +52,7 @@ app.get('/:pageName', function(req, res, next) {
     }
 });
 
-var PORT = process.env.port || 2000;
+var PORT = process.env.port || 8000;
 
 app.listen(PORT, function() {
     console.log('Server start! http://127.0.0.1:%d/', PORT);

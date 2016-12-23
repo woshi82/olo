@@ -35,13 +35,8 @@ module.exports = generators.Base.extend({
         this.directory('components', 'cmp');
         this.directory('mock', 'mock');
 
-        // this.directory('server', 'server');
-
         this.directory('utils', 'utils');
         this.directory('middleware', 'middleware');
-        // this.directory('service', 'service');
-        // this.directory('controllers', 'controllers');
-        // this.directory('routes', 'routes');
         this.copy('service/auth.js', 'service/auth.js');
         this.copy('controllers/index.js', 'controllers/index.js');
         this.copy('routes/init.js', 'routes/init.js');

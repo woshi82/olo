@@ -1,28 +1,35 @@
+/**
+ * fis-conf.js
+ * @version : 1.0.0
+ * @description fis3 settings
+ */
+
 'use strict';
+
 var configFile = require('./config.json'),
 	config = process.argv.indexOf('prod') !== -1 ?configFile.prod:configFile.dev;
 
 config.root?fis.set('base.urlRoot', '/'+config.root):fis.set('base.urlRoot', '');
 
 
-process.env.port = configFile.port || 3000;
+process.env.port = configFile.port || 8000;
 process.env.root = config.root || '';
 
 fis.set('new date', Date.now());
 fis.set('base.port',process.env.port);
 fis.set('base.root', config.root);
 fis.set('base.static',config.root + '/public');
-fis.media('prod').set('charset', 'gb2312');
+fis.set('charset', 'gb2312');
 
-// fis.hook('relative');
-
-// 让所有文件，都使用相对路径。
-// fis.match('**', {
-//   relative: true
-// });
+fis.match('*.handlebars', {
+    isHtmlLike: true,
+    rExt: 'html'
+});
 
 // 默认开启 handlebars
 fis.match('*.handlebars', {
+    isHtmlLike: true,
+    rExt: 'html',
     parser: fis.plugin('biketo-handlebars', {
         opts: {
             ignorePartials: true,
@@ -38,6 +45,9 @@ fis.match('*.handlebars', {
 
 fis.match('*', {
     release: false
+});
+fis.match(/^\/mock\/(.*)$/, {
+    release: '/${base.root}/mock/$1'
 });
 fis.match(/^\/server\/(.*)$/, {
     release: '/${base.root}/server/$1'
