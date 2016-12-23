@@ -172,7 +172,7 @@ exports.register = function(commander) {
                 fis.log.error('fail to start server.\n\n %s', error);
                 return;
             }
-            console.log(233);
+            // console.log(233);
             lanuch.apply(null, execArgs);
 
             // var address = (options.https ? 'https' : 'http') + '://127.0.0.1' + (options.port == 80 ? '/' : ':' + options.port + '/');
