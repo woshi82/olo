@@ -1,0 +1,78 @@
+
+@mixin line-gradient($width:1px, $height:1.3rem, $color:#dadada) {
+    width: $width;
+    height: $height;
+    background: -moz-linear-gradient(top, white, $color 50%, white 100%);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(white), color-stop(50%, $color), color-stop(100%, white));
+}
+
+a[href^="http://www.cnzz.com/"] > img {
+    display: none;
+}
+
+a[title="站长统计"] > img {
+    display: hidden;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear {
+    zoom: 1;
+}
+
+.clear:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+// vue的切换过渡动画-展开
+.expand-transition {
+    transition: all .3s ease;
+    height: 30px;
+    padding: 10px;
+    background-color: #eee;
+    overflow: hidden;
+}
+
+.expand-enter,
+.expand-leave {
+    height: 0;
+    padding: 0 10px;
+    opacity: 0;
+}
+
+// vue的切换过渡动画-渐变
+.fade-transition {
+    transition: opacity .3s ease;
+}
+
+.fade-enter,
+.fade-leave {
+    opacity: 0;
+}
+
+// 懒加载的动画效果
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0.5
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.5
+    }
+    100% {
+        opacity: 1
+    }
+}

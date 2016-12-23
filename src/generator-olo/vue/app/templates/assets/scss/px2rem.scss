@@ -1,0 +1,18 @@
+
+//$px为需要转换的字号
+@function px2rem($px){
+    @return $px / 108px * 1rem;
+}
+
+// 根据设计图进行调整
+@mixin font-dpr($font-size){
+    font-size: $font-size/2;
+
+    [data-dpr="2"] & {
+        font-size: $font-size;
+    }
+
+    [data-dpr="3"] & {
+        font-size: $font-size * 3/2;
+    }
+}
