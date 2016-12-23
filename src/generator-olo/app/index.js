@@ -46,6 +46,9 @@ module.exports = generators.Base.extend({
             }, {
                 name: 'seo-php',
                 value: 'seo-php'
+            }, {
+                name: 'vue',
+                value: 'vue'
             }]
         }]).then(function(answers) {
             
