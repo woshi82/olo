@@ -14,16 +14,22 @@ fis.require.paths.push(path.join(path.dirname(__dirname), 'node_modules'));
 
 
 // 默认开启 browserify debug
-// fis.config.set('settings.preprocessor.browserify', {
-//     browserify: {
-//         debug: true
-//     }
-// });
-// 默认开启 handlebars
-fis.match('*.handlebars', {
-    isHtmlLike: true,
-    rExt: 'html'
+fis.config.set('settings.preprocessor.browserify', {
+    browserify: {
+        debug: true
+    }
 });
+// 默认prod模式关闭 browserify debug
+fis.config.media('prod').set('settings.preprocessor.browserify', {
+    browserify: {
+        debug: false
+    }
+});
+// 默认开启 handlebars
+// fis.match('*.handlebars', {
+//     isHtmlLike: true,
+//     rExt: 'html'
+// });
 // 默认开启 sass
 fis.match('*.{scss,sass}', {
     parser: fis.plugin('node-sass'),
@@ -35,11 +41,15 @@ fis.match('::package', {
     spriter: fis.plugin('csssprites')
 });
 fis.config.set('settings.spriter.csssprites', {
-    margin: 10
-    // layout: 'matrix'
+    layout: 'matrix',
+    margin: '15'
 });
 
-
+// 默认开启 autoprefixer
+fis.config.set('settings.preprocessor.autoprefixer', {
+    browsers: ['Android >= 2.1', 'iOS >= 4', 'ie >= 8', 'firefox >= 15'],
+    cascade: true
+});
 
 
 if (FIS_ENV.configPath) {
