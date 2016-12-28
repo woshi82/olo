@@ -14,9 +14,12 @@ var olo = require('commander')
  */
 olo
     .command('init')
+    .option('-c, --clean', 'clean olo cached template')
     .description('create a new front-end project')
-    .action(function () {
-        generators('app');
+    .action(function (options) {
+        // console.log(options.clean)
+        !options.clean? generators('app'): generators('app','clean');
+        // generators('app');
     });
 olo
     .command('v <name>')
