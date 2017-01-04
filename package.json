@@ -1,6 +1,6 @@
 {
   "name": "olo",
-  "version": "2.0.15",
+  "version": "3.0.0",
   "description": "基于fis3的前端工程流",
   "main": "index.js",
   "bin": {
@@ -23,7 +23,6 @@
     "url": "https://github.com/woshi82/olo/issues"
   },
   "homepage": "https://github.com/woshi82/olo#readme",
- 
   "dependencies": {
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
@@ -31,12 +30,15 @@
     "fis-parser-node-sass": "^0.2.1",
     "fis-preprocessor-browserify": "^0.2.1",
     "fis3": "^3.4.22",
-    "fis3-hook-relative": "^1.0.9",   
+    "fis3-hook-relative": "git+https://github.com/woshi82/fis3-hook-relative.git",
+    "fis3-preprocessor-autoprefixer": "^0.1.1",
     "hasbin": "^1.2.3",
     "lodash": "^4.15.0",
     "node-dev": "^3.1.3",
     "open": "0.0.5",
-    "yeoman-environment": "^1.6.3",
-    "yeoman-generator": "^0.24.1"
+    "rimraf": "^2.5.4",
+    "yeoman-environment": "^1.6.6",
+    "yeoman-generator": "^0.24.1",
+    "yeoman-remote": "^1.0.1"
   }
 }
