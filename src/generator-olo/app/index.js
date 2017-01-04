@@ -14,9 +14,7 @@ var generatorRoot = path.join( __dirname, '../');
 module.exports = generators.Base.extend({
     constructor: function() {
         generators.Base.apply(this, arguments);
-        // this.argument('viewName', { type: String, required: true });
         this.argument('cmdType', { type: String, required: true });
-        console.log(arguments[0]);
         this.spawnArgument = arguments[0].slice(1);
     },
     prepare: function(){
@@ -35,9 +33,9 @@ module.exports = generators.Base.extend({
         } catch (e) {
             this.log(
                 '\n' +
-                chalk.red('Tips ') +
-                '请初始化项目:  `' + 
-                chalk.blue('olo init')
+                chalk.red('请初始化项目:  ') +
+                ' ' + 
+                chalk.blue('olo init 或 olo init -c')
             );
             return;
         };

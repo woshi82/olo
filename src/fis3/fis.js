@@ -26,10 +26,10 @@ fis.config.media('prod').set('settings.preprocessor.browserify', {
     }
 });
 // 默认开启 handlebars
-// fis.match('*.handlebars', {
-//     isHtmlLike: true,
-//     rExt: 'html'
-// });
+fis.match('*.handlebars', {
+    isHtmlLike: true,
+    rExt: 'html'
+});
 // 默认开启 sass
 fis.match('*.{scss,sass}', {
     parser: fis.plugin('node-sass'),

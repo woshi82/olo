@@ -11,7 +11,6 @@ module.exports = function (cmd) {
     if (cmd != 'frame') {
 	    if (cleanCacheIndex !== -1) {
 	    	argumentsArray.splice(cleanCacheIndex, 1);
-	    	console.log(argumentsArray)
 	    }
 	    var gPath = './' + path.join('generator-olo', 'app', 'index.js');
 	    env.register(require.resolve(gPath), 'app');
