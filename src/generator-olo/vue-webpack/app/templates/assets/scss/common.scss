@@ -1,0 +1,10 @@
+
+@import './reset.scss';
+
+$red: red;
+@mixin line-gradient($width:1px, $height:1.3rem, $color:#dadada) {
+    width: $width;
+    height: $height;
+    background: -moz-linear-gradient(top, white, $color 50%, white 100%);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(white), color-stop(50%, $color), color-stop(100%, white));
+}

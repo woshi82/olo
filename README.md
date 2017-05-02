@@ -1,4 +1,4 @@
-﻿# olo
+# olo
 
   基于`scrat`及类似框架开发的一个自动化前端工程流的框架。通过`olo`能够一键初始化并快速开发web端项目、基于node服务端渲染的项目、vue项目。并且是组件化的方式进行开发，特别有利于团队合作开发。生成的项目还提供服务、热加载功能、生产环境、优化产出环境。
 
@@ -16,9 +16,14 @@
 > 所有命令的参数都可以通过`olo ** -h`查看  
 
 #### 初始化
-    olo init  
+```javascript
+olo init  
+olo init  -c    // 初始化项目的时候同时清楚本地缓存模版
+```
 #### 生成视图
-    olo v view-name  
+```javascript
+olo v view-name  
+```
 #### 生成组件
     olo c component-name 
 #### 从组件库加载组件
@@ -43,29 +48,12 @@
     olo init
     olo v view-name (可选)
     olo c component-name (可选)
-    olo s (或者) npm run start
+    olo s (或者) npm start
     olo w (或者) npm run watch
 ```
-#### 一. 公用配置
-```
-{
-    "dev": {
-        "ENV": "DEV",
-        "PORT": 8000,
-        "ROOT": "good",
-        "APIDOMAIN": "http://127.0.0.1:8000/good"
-    },
-    "prod": {
-        "ENV": "PROD",
-        "PORT": 8000,
-        "ROOT": "good",
-        "APIDOMAIN": "http://127.0.0.1:8000/good"
-    }
-}
-```
-#### 二. seo
+#### 一.  seo
 
-##### 目录结构
+##### 1. 目录结构
 
 ```
 |---- assets            # 静态文件目录
@@ -93,9 +81,9 @@
 |---- .eslintrc         # eslint 代码规范性检查配置文件
 |---- .gitignore        # git 仓库文件忽略配置
 ```
-##### 数据模拟
+##### 2. 数据模拟
 mock数据功能内嵌在node服务中，功能用法和fis文档上说明的一样。[http://fis.baidu.com/fis3/docs/node-mock.html][1]
-##### 注意事项
+##### 3. 注意事项
 1、 页面路由  **controllers>index.js**
 ```javascript
 module.exports = {
@@ -117,7 +105,7 @@ module.exports = {
     二级路由/三级路由: 接口名称
     二级路由:{
         三级路由:接口名称
-        ```
+```
     }
 }
 (或)
@@ -130,7 +118,7 @@ module.exports = {
 >*2、如果需要自定义路由函数可以借助分隔符`|`,即：`路由函数名|一级路由`。*  
 >*3、controllers中路由方式默认是GET。*
 
-```javascript
+​```javascript
 "controllers": {
     "root": "../controllers",
     "map":{
@@ -182,7 +170,7 @@ module.exports = {
 }
 ```
 
-#### 三. seo-php
+#### 二. seo-php
 > 功能、用法与`generator-biketo`相类似。
 
 ##### 目录结构
@@ -213,16 +201,27 @@ module.exports = {
 3. 可以自行加入`helper`并在 _conf.js_ 中的 *handlebars* 配置项中配置；
 
 
+#### 三. vue
+
+快速初始化 vue 项目框架，这个模块提供了两种构建工具 **fis3**、**webpack 2.0**， 可根据编码习惯进行选择。两种构建工具都加入了 **es6** 编译，只是**webpack 2.0** 编译速度更快。
+
+
+
 ## 更新
+**v3.1.0**
+
+1. 添加`vue模式` **webpack 2.0** 构建
+2. 修复其它模块的BUG
+
 **v3.0.0**
+
  1. 添加`vue模式`工程流
  2. olo模版`本地直接拷贝`方式改成`远程获取并缓存`  
  3. 添加`olo init -c`清楚模版缓存初始化项目  
  4. 修改远程拉去组件的地址, 通过`olo i cmpName`获取远程组件
 
 **v2.0.16**
- 1. `seo-php模式`,mock数据未产出.
-  
+ 1. `seo-php模式`,mock数据未产出.  
 
 **v2.0.15**
  1. `seo模式`,生产环境下支持多个项目并行开发.
@@ -230,7 +229,7 @@ module.exports = {
 
 **v2.0.14**
  1. 解决在fis的开发环境下启动多个项目时，路由有一级路由的问题。
- 
+
 **v2.0.13**
 
  1. 支持node 6.x。
@@ -239,13 +238,13 @@ module.exports = {
  4. `seo-php模式`html的charset改为utf-8。
  5. 添加`olo f 框架名`，可快速添加常用包。
  6. `common.js`ajax错误提示更改成console形式。
- 
+
 **v2.0.8**
 
  1. `seo模式`解决.gitignore被NPM改变文件名BUG
  2. `seo模式`将mock数据功能直接嵌入到服务中，优化开发流程。
- 2. `seo模式`增加gzip压缩功能。
- 3. `seo模式`修改airbnb规范说明。
+ 3. `seo模式`增加gzip压缩功能。
+ 4. `seo模式`修改airbnb规范说明。
 
 **v2.0.0**
 

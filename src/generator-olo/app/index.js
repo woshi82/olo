@@ -89,22 +89,55 @@ module.exports = generators.Base.extend({
                 name: 'vue',
                 value: 'vue'
             }]
-        }]).then(function(answers) { 
+        }]).then(function(answers) {
+
             this.actName = answers.name;
             this.oloType = answers.type;
-
-            this._getTemplate(function (err, template) {
-                if (err) return done(err);
-                this.composeWith("olo:"+this.oloType, {
-                    options: {
-                        oloType: this.oloType,
-                        actName: this.actName
+            if(this.oloType === 'vue'){
+                this.prompt([{
+                    type: 'list',
+                    name: 'buildTool',
+                    message: 'Which tool do you want to build olo-vue project?',
+                    choices: [ {
+                        name: 'webpack',
+                        value: 'webpack'
+                    }, {
+                        name: 'fis3',
+                        value: 'fis3'
+                    }]
+                }]).then(function(tools){
+                    if(tools.buildTool === 'webpack'){
+                        console.log(this);
+                        this.oloType = this.oloType + '-webpack';
+                        this._getTemplate(function (err, template) {
+                            if (err) return done(err);
+                            this.composeWith("olo:"+this.oloType, {
+                                options: {
+                                    oloType: this.oloType,
+                                    actName: this.actName
+                                }
+                            }, {
+                                local: require.resolve("../"+this.oloType+"/app")
+                            });
+                            done();
+                        });
                     }
-                }, {
-                    local: require.resolve("../"+this.oloType+"/app")
+                }.bind(this));
+            } else {
+                this._getTemplate(function (err, template) {
+                    if (err) return done(err);
+                    this.composeWith("olo:"+this.oloType, {
+                        options: {
+                            oloType: this.oloType,
+                            actName: this.actName
+                        }
+                    }, {
+                        local: require.resolve("../"+this.oloType+"/app")
+                    });
+                    done();
                 });
-                done();
-            });
+
+            }
         }.bind(this));
     },
     _getTemplate: function(callback){
