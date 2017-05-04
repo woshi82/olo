@@ -1,4 +1,10 @@
 
+#自定义
+src/generator-olo/vue
+src/generator-olo/vue-webpack
+src/generator-olo/seo
+src/generator-olo/seo-php
+
 # Created by https://www.gitignore.io/api/windows,macos,node,sublimetext,visualstudiocode,webstorm
 
 ### Windows ###
