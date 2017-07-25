@@ -249,7 +249,7 @@ module.exports = {
     |-- images              # 图片文件
     |-- scss                # 通用样式文件
 |-- build/                  # webpack2 编译配置
-|-- config/                 # 项目配置
+|-- config/                 # 项目编译配置
 |-- components/             # 页面组件文件
     |-- component/   
     |-- page/   

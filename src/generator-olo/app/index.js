@@ -107,8 +107,20 @@ module.exports = generators.Base.extend({
                     }]
                 }]).then(function(tools){
                     if(tools.buildTool === 'webpack'){
-                        console.log(this);
                         this.oloType = this.oloType + '-webpack';
+                        this._getTemplate(function (err, template) {
+                            if (err) return done(err);
+                            this.composeWith("olo:"+this.oloType, {
+                                options: {
+                                    oloType: this.oloType,
+                                    actName: this.actName
+                                }
+                            }, {
+                                local: require.resolve("../"+this.oloType+"/app")
+                            });
+                            done();
+                        });
+                    } else {
                         this._getTemplate(function (err, template) {
                             if (err) return done(err);
                             this.composeWith("olo:"+this.oloType, {
