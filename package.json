@@ -1,6 +1,6 @@
 {
   "name": "olo",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "基于fis3、webpack2的前端工程流",
   "main": "index.js",
   "bin": {
